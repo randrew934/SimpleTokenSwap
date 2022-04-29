@@ -60,8 +60,6 @@ contract SimpleERCTokenSwap{
         require(token1.balanceOf(msg.sender) >= _amount, "Insufficient Supply");
         //Check if the token amount is available in the Swap
         require(token2.balanceOf(address(this)) >= tokenAmount, "Insufficient Supply");
-        //Approve this address to transfer token
-        token1.approve(address(this), tokenAmount);
         //Transfer the Pair1
         token1.transferFrom(msg.sender, address(this), _amount);
         //Transfer the Pair2
@@ -79,8 +77,6 @@ contract SimpleERCTokenSwap{
         require(token2.balanceOf(msg.sender) >= _amount, "Insufficient Supply");
         //Check if the token amount is available in the Swap
         require(token1.balanceOf(address(this)) >= tokenAmount, "Insufficient Supply");
-        //Approve this address to transfer token
-        token2.approve(address(this), _amount);
         //Transfer the Pair2
         token2.transferFrom(msg.sender, address(this), _amount);
         //Transfer the Pair1
